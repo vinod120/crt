@@ -11,7 +11,8 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "format": "prettier --write .",
     "format-and-lint": "npm run format && npm run lint",
-    "type-check": "tsc --noEmit --strict",
+    "type-check": "./check-typescript-warnings.sh",
+    "type-check-staged": "tsc-files --noEmit --strict",
     "test": "vitest",
     "coverage": "vitest run --coverage --silent",
     "postcoverage": "open coverage/index.html",
@@ -53,17 +54,12 @@
     "open": "^10.1.2",
     "prettier": "^3.6.2",
     "react-i18next": "^15.5.3",
+    "tsc-files": "^1.1.4",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.34.1",
     "vite": "^6.3.5",
     "vite-plugin-svgr": "^4.3.0",
     "vitest": "^0.34.2"
-  },
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ]
   },
   "engines": {
     "node": ">=18.0.0"
